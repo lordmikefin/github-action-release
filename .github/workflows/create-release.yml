@@ -38,7 +38,7 @@ jobs:
       - name: Testing how to parse variable
         env:
           VERSION_FROM_REF: ${{ github.ref }}
-        run: echo $(echo ${GITHUB_REF} | cut -d'/' -f3)
+        run: echo $(echo ${VERSION_FROM_REF} | cut -d'/' -f3)
       - name: Test the tag var
         run: echo ${{ steps.vars.outputs.parsed_tag }}
       - name: Checkout code
