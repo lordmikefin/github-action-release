@@ -1,2 +1,12 @@
 # github-action-release
 Testing how GitHub Action workflow works with release
+
+## GitHub Action
+
+Testing actions:
+ - [create-a-release](https://github.com/marketplace/actions/create-a-release)
+ - [upload-a-release-asset](https://github.com/marketplace/actions/upload-a-release-asset)
+
+Read more about [GitHub Action](https://github.com/features/actions)
+
+List of [Action](https://github.com/marketplace?type=actions)
