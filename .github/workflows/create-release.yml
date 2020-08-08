@@ -10,6 +10,9 @@
 # Github context
 # https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
 
+# Step output can be used as variable
+# https://stackoverflow.com/questions/57819539/github-actions-how-to-share-a-calculated-value-between-job-steps
+
 on:
   push:
     # Sequence of patterns matched against refs/tags
@@ -23,10 +26,21 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
-      - name: Dump GitHub context
+      #- name: Dump GitHub context
+      #  env:
+      #    GITHUB_CONTEXT: ${{ toJson(github) }}
+      #  run: echo "$GITHUB_CONTEXT"
+      - name: Test print GITHUB_REF
+        run: echo ${GITHUB_REF}
+      - name: Set tag var
+        id: vars
+        run: echo ::set-output name=parsed_tag::$(echo ${GITHUB_REF} | cut -d'/' -f3)
+      - name: Testing how to parse variable
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+          VERSION_FROM_REF: ${{ github.ref }}
+        run: echo $(echo ${GITHUB_REF} | cut -d'/' -f3)
+      - name: Test the tag var
+        run echo ${{ steps.vars.outputs.parsed_tag }}
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build project # This would actually build your project, using zip for an example artifact
