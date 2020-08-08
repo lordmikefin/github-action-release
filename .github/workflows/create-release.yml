@@ -6,6 +6,10 @@
 
 # https://github.com/marketplace/actions/upload-a-release-asset
 
+
+# Github context
+# https://docs.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions#github-context
+
 on:
   push:
     # Sequence of patterns matched against refs/tags
@@ -19,11 +23,15 @@ jobs:
     name: Create Release
     runs-on: ubuntu-latest
     steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
-          zip my-artifact-${{ github.ref }} README.md
+          zip my-artifact README.md
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
