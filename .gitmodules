@@ -1,0 +1,3 @@
+[submodule "github-action-release-submodule"]
+	path = github-action-release-submodule
+	url = https://github.com/lordmikefin/github-action-release-submodule.git
