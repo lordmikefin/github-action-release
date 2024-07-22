@@ -5,6 +5,9 @@
 # https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow
 # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch
 
+# NOTE: When using checkout action version 2, then action will warn about debracated Node.js
+#       https://github.com/marketplace/actions/checkout?version=v4.1.7
+
 on:
   workflow_dispatch:
     inputs:
@@ -39,4 +42,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4

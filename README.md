@@ -13,3 +13,6 @@ NOTE: actions are based on
 Read more about [GitHub Action](https://github.com/features/actions)
 
 List of [Action](https://github.com/marketplace?type=actions)
+
+
+[checkout action version 4.1.7](https://github.com/marketplace/actions/checkout?version=v4.1.7)
