@@ -63,7 +63,7 @@ jobs:
       #  uses: textbook/git-checkout-submodule-action@master
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
-          zip -r my-artifact.zip *
+          zip -r my-artifact-v0.0.11.zip *
       - name: Create Release
         id: create_release
         uses: ncipollo/release-action@v1
@@ -91,7 +91,7 @@ jobs:
           #upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           #file: my-artifact.zip
           path: |
-            my-artifact.zip
+            my-artifact-v0.0.11.zip
           upload-release-files: true
           #asset_name: my-artifact-v0.0.11.zip
           #asset_content_type: application/zip
