@@ -8,6 +8,10 @@
 # NOTE: When using checkout action version 2, then action will warn about debracated Node.js
 #       https://github.com/marketplace/actions/checkout?version=v4.1.7
 
+# NOTE: 'Checkout submodules' will fail. The project is no longer maintained!
+#       https://github.com/marketplace/actions/checkout-submodules
+#       https://github.com/marketplace/actions/checkout-submodules#alternatives
+
 on:
   workflow_dispatch:
     inputs:
@@ -43,5 +47,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Checkout submodules
-        uses: textbook/git-checkout-submodule-action@master
+        with:
+          submodules: recursive
+      #- name: Checkout submodules
+      #  uses: textbook/git-checkout-submodule-action@master
