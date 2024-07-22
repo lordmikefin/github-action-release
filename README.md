@@ -4,7 +4,8 @@ Testing how GitHub Action workflow works with release
 ## GitHub Action
 
 Testing actions:
- - [create-a-release](https://github.com/marketplace/actions/create-a-release)
+ <!--- [create-a-release](https://github.com/marketplace/actions/create-a-release) --->
+ - [create-a-release](https://github.com/marketplace/actions/create-a-release-node16)
  - [upload-a-release-asset](https://github.com/marketplace/actions/upload-a-release-asset)
 
 NOTE: actions are based on 
