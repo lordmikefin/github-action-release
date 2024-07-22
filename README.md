@@ -7,7 +7,8 @@ Testing actions:
  <!--- [create-a-release](https://github.com/marketplace/actions/create-a-release) --->
  - [create-a-release](https://github.com/marketplace/actions/create-a-release-node16)
  <!--- [upload-a-release-asset](https://github.com/marketplace/actions/upload-a-release-asset) --->
- - [upload-a-release-asset](https://github.com/marketplace/actions/upload-release-asset)
+ <!--- [upload-a-release-asset](https://github.com/marketplace/actions/upload-release-asset) --->
+ - [upload-a-release-asset](https://github.com/marketplace/actions/upload-release-assets?version=0.4.1)
 
 NOTE: actions are based on 
 [Github API](https://docs.github.com/en/rest/reference/repos#create-a-release)
