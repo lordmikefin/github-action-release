@@ -51,6 +51,10 @@ jobs:
           submodules: recursive
       #- name: Checkout submodules
       #  uses: textbook/git-checkout-submodule-action@master
+  
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
           zip -r my-artifact *
