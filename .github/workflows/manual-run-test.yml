@@ -15,6 +15,9 @@
 # 'Create Release'
 # https://github.com/marketplace/actions/create-release?version=v1.14.0
 
+# NOTE: 'upload-release-asset' uses debracated Node.js
+#       https://github.com/marketplace/actions/upload-release-asset
+
 on:
   workflow_dispatch:
     inputs:
