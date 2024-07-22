@@ -59,12 +59,13 @@ jobs:
           zip -r my-artifact *
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: ncipollo/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag_name: v0.0.11
-          release_name: Manual action run Release test v0.0.11
+          allowUpdates: true
+          tag: v0.0.11
+          name: Manual action run Release test v0.0.11
           body: |
             Changes in this Release
             - First Change
