@@ -51,3 +51,6 @@ jobs:
           submodules: recursive
       #- name: Checkout submodules
       #  uses: textbook/git-checkout-submodule-action@master
+      - name: Build project # This would actually build your project, using zip for an example artifact
+        run: |
+          zip -r my-artifact *
