@@ -12,6 +12,9 @@
 #       https://github.com/marketplace/actions/checkout-submodules
 #       https://github.com/marketplace/actions/checkout-submodules#alternatives
 
+# 'Create Release'
+# https://github.com/marketplace/actions/create-release?version=v1.14.0
+
 on:
   workflow_dispatch:
     inputs:
@@ -54,3 +57,18 @@ jobs:
       - name: Build project # This would actually build your project, using zip for an example artifact
         run: |
           zip -r my-artifact *
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: v0.0.11
+          release_name: Manual action run Release test v0.0.11
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+            TODO: can I set this from a separate file?
+          draft: false
+          prerelease: false
