@@ -43,6 +43,7 @@ jobs:
         id: vars
         #run: echo ::set-output name=parsed_tag::$(echo ${GITHUB_REF} | cut -d'/' -f3)
         #run: echo name=parsed_tag::$(echo ${GITHUB_REF} | cut -d'/' -f3) >> $GITHUB_OUTPUT
-        run: echo name=parsed_tag::TEST_val >> $GITHUB_OUTPUT
+        #run: echo name=parsed_tag::TEST_val >> $GITHUB_OUTPUT
+        run: echo parsed_tag=TEST_val >> $GITHUB_OUTPUT
       - name: Test the tag var
         run: echo ${{ steps.vars.outputs.parsed_tag }}
