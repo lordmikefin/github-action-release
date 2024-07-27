@@ -58,7 +58,7 @@ jobs:
       - name: Set tag var
         id: vars
         #run: echo ::set-output name=parsed_tag::$(echo ${GITHUB_REF} | cut -d'/' -f3)
-        run: echo name=parsed_tag::$(echo ${GITHUB_REF} | cut -d'/' -f3) >> $GITHUB_OUTPUT
+        run: echo parsed_tag=$(echo ${GITHUB_REF} | cut -d'/' -f3) >> $GITHUB_OUTPUT
       - name: Testing how to parse variable
         env:
           VERSION_FROM_REF: ${{ github.ref }}
