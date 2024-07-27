@@ -1,0 +1,48 @@
+
+# Testing how to manually run Github Actions
+
+# NOTE: The `set-output` command is deprecated and will be disabled soon. Please upgrade to using Environment Files.
+# For more information see: 
+# https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+
+
+on:
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        type: boolean
+
+name: Manually run Action 'workflow_dispatch'
+
+jobs:
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+        env:
+          LEVEL: ${{ inputs.logLevel }}
+          TAGS: ${{ inputs.tags }}
+  
+  test-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set tag var
+        id: vars
+        #run: echo ::set-output name=parsed_tag::$(echo ${GITHUB_REF} | cut -d'/' -f3)
+        #run: echo name=parsed_tag::$(echo ${GITHUB_REF} | cut -d'/' -f3) >> $GITHUB_OUTPUT
+        run: echo name=parsed_tag::TEST_val >> $GITHUB_OUTPUT
+      - name: Test the tag var
+        run: echo ${{ steps.vars.outputs.parsed_tag }}
