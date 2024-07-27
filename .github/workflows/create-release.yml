@@ -78,8 +78,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tag: ${{ github.ref }}
-          name: Release ${{ github.ref }}
+          #tag: ${{ github.ref }}
+          tag: ${{ steps.vars.outputs.parsed_tag }}
+          #name: Release ${{ github.ref }}
+          name: Release ${{ steps.vars.outputs.parsed_tag }}
           body: |
             Changes in this Release
             - First Change
