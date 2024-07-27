@@ -23,7 +23,7 @@ on:
         required: false
         type: boolean
 
-name: Manually run Action 'workflow_dispatch'
+name: Manually run Action 'Test outputs'
 
 jobs:
   log-the-inputs:
